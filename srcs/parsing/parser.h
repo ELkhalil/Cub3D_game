@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/17 15:59:06 by aelkhali          #+#    #+#             */
+/*   Updated: 2023/03/17 18:28:34 by aelkhali         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PARSER_H
+# define PARSER_H
+
+/* Get Next Line Settings*/
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 8
+# endif
+
+/*Map Storage infos*/
+typedef struct map_data
+{
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		f[3];
+	int		c[3];
+	char	**map;
+}			t_data;
+
+/* gobal functions */
+void    ft_error(char *msg);
+
+/* reading functions */
+char	*get_next_line(int fd);
+
+/* parsing functions */
+void	init_data(t_data **data);
+
+
+#endif
