@@ -6,11 +6,11 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 09:56:13 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/17 17:20:47 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:18:54 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "libft.h"
 
 static char	*re_n_store(int fd, char *container)
 {

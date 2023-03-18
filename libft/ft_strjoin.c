@@ -6,11 +6,11 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 08:29:44 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/17 17:20:31 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:18:20 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "libft.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {

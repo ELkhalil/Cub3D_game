@@ -6,11 +6,11 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:19:09 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/17 17:20:18 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:18:08 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "libft.h"
 
 static char	**memory_free(char **strs, int j)
 {

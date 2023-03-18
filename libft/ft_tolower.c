@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 23:32:17 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:18:42 by aelkhali         ###   ########.fr       */
+/*   Created: 2022/10/08 20:57:16 by aelkhali          #+#    #+#             */
+/*   Updated: 2022/10/12 11:41:07 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strrchr(char *s, int c)
+int	ft_tolower(int c)
 {
-	size_t	len;
-	size_t	i;
-
-	len = ft_strlen(s);
-	i = 0;
-	s += len;
-	while (i <= len)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s--;
-		i++;
-	}
-	return (NULL);
+	if ((c > 64 && c < 91))
+		return (c + 32);
+	return (c);
 }

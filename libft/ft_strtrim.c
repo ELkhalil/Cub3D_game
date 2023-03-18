@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 23:32:17 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:18:42 by aelkhali         ###   ########.fr       */
+/*   Created: 2022/10/13 09:41:15 by aelkhali          #+#    #+#             */
+/*   Updated: 2023/03/18 10:18:46 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(char *s, int c)
+char	*ft_strtrim(char *s1, char *set)
 {
-	size_t	len;
-	size_t	i;
+	int		i;
+	int		j;
 
-	len = ft_strlen(s);
+	if (!s1)
+		return (NULL);
 	i = 0;
-	s += len;
-	while (i <= len)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s--;
+	j = ft_strlen(s1) - 1;
+	while (ft_strchr(set, s1[i]) && s1[i])
 		i++;
-	}
-	return (NULL);
+	if (s1[i] == '\0')
+		return (ft_strdup(""));
+	while (ft_strchr(set, s1[j]) && j)
+		j--;
+	return (ft_substr(s1, i, j - i + 1));
 }

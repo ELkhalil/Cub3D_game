@@ -6,7 +6,7 @@
 #    By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 15:53:10 by aelkhali          #+#    #+#              #
-#    Updated: 2023/03/17 20:42:47 by aelkhali         ###   ########.fr        #
+#    Updated: 2023/03/18 10:47:04 by aelkhali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,26 +26,30 @@ FLAGS =	-Wall -Wextra -Werror # -fsanitize=address -g
 MLX = -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 
-# loading source files :
-LIBFT = ./libft/ft_putstr.c ./libft/ft_split.c ./libft/ft_strchr.c ./libft/ft_strjoin.c \
-	./libft/ft_strcmp.c ./libft/ft_strlcpy.c ./libft/ft_strlen.c ./libft/ft_substr.c ./libft/get_next_line.c \
-	./libft/ft_putnbr_fd.c ./libft/ft_putchar_fd.c ./libft/ft_putstr_fd.c ./libft/ft_strncmp.c \
-	./libft/ft_strrchr.c
+# iclude libft Makefile
+LIBFT_PATH = cd ./libft
+LIBFT = ./libft/libft.a
+PARS_SRCS = ./srcs/parsing/parser.c ./srcs/parsing/parser_utils_1.c ./srcs/parsing/parser_utils_2.c \
+			
 
-SRCS = $(LIBFT) main.c ./srcs/parsing/parser.c
+# loading source files :
+SRCS = main.c $(PARS_SRCS) 
 
 all : $(NAME)
 	@echo "You Can Start Playing $(GREEN)*** $(NAME) ***"
 
 $(NAME) : $(SRCS)
-	@$(CC) $(FLAGS) $(MLX) $(SRCS) -o $(NAME)
+	@$(LIBFT_PATH) && make
+	@$(CC) $(FLAGS) $(MLX) $(SRCS) $(LIBFT) -o $(NAME)
 	@echo "$(BLUE)Compiling the source files... $(STOP)"
 
 clean :
-	@$(RM) $(NAME)
+	@$(LIBFT_PATH) && make clean
 	@echo "$(YELLOW)Cleaning... $(STOP)"
 
 fclean : clean
+	@$(LIBFT_PATH) && make fclean
+	@$(RM) $(NAME)
 	@echo "$(RED)Deleting The Game ... $(STOP)"
 
 re : fclean all

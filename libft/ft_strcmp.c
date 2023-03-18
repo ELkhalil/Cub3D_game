@@ -6,11 +6,11 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:10:38 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/17 19:51:49 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:18:16 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "libft.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

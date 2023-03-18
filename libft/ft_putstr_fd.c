@@ -6,11 +6,11 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:31:31 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/17 17:20:08 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:17:59 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

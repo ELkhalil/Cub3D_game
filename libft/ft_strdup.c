@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 23:32:17 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:18:42 by aelkhali         ###   ########.fr       */
+/*   Created: 2022/10/13 07:48:30 by aelkhali          #+#    #+#             */
+/*   Updated: 2023/03/17 21:28:55 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../cub3d.h"
 
-char	*ft_strrchr(char *s, int c)
+char	*ft_strdup(char *s1)
 {
-	size_t	len;
-	size_t	i;
+	char	*copied_str;
+	size_t	lentgh;
+	int		i;
 
-	len = ft_strlen(s);
 	i = 0;
-	s += len;
-	while (i <= len)
+	lentgh = ft_strlen(s1);
+	copied_str = malloc (lentgh + 1);
+	if (!copied_str)
+		return (NULL);
+	while (s1[i])
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s--;
+		copied_str[i] = s1[i];
 		i++;
 	}
-	return (NULL);
+	copied_str[i] = '\0';
+	return (copied_str);
 }
