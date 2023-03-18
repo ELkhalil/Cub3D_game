@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:03:05 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:17:38 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:40:34 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	sign_check(int sign)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	long	tmp;
 	long	result;

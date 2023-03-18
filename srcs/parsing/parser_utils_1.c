@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:34:34 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 17:28:51 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:46:59 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,13 @@ int	skip_spcs(char *str)
 	while (str[i] && str[i] == ' ')
 		i++;
 	return (i);
+}
+
+/* Display error  */
+void	ft_error(char *msg)
+{
+	ft_putstr_fd("Error\n", 2);
+	if (msg)
+		ft_putstr_fd(msg, 2);
+	exit(EXIT_FAILURE);
 }

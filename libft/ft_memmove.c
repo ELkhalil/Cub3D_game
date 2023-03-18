@@ -6,13 +6,13 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:50:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/24 09:08:28 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:40:34 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, void *src, size_t len)
 {
 	unsigned char	*c_dst;
 	unsigned char	*c_src;

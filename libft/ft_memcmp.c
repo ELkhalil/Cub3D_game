@@ -6,13 +6,13 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:27:45 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/16 12:01:45 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:40:34 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(void *s1, void *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*s_1;

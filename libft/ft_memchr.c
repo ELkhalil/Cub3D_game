@@ -6,13 +6,13 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:24:10 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/16 11:58:32 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:40:34 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(void *s, int c, size_t n)
 {
 	size_t			i;
 	unsigned char	*str;
