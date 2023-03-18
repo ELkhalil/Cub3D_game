@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 09:56:13 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:18:54 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 12:04:42 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	*line_extractor(char *str)
 
 	if (!*str)
 		return (NULL);
-	len = ft_strlen(str) - ft_strlen(ft_strchr(str, '\n')) + 1;
+	len = ft_strlen(str) - ft_strlen(ft_strchr(str, '\n'));
 	extracted_line = ft_substr(str, 0, len);
 	return (extracted_line);
 }

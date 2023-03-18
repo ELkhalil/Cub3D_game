@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_utils.c                                     :+:      :+:    :+:   */
+/*   parser_utils_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:34:34 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:38:19 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:28:51 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
+/* init the parsing struct */
 void	init_data(t_data **data)
 {
 	if (!data)
@@ -25,6 +26,7 @@ void	init_data(t_data **data)
 	(*data)->map = NULL;
 }
 
+/* free double pointer array */
 void	free_array(char **strs)
 {
 	int	i;
@@ -35,6 +37,7 @@ void	free_array(char **strs)
 	free (strs);
 }
 
+/* count how many char in str */
 int	count_char(char *str, char c)
 {
 	int	i;
@@ -51,32 +54,15 @@ int	count_char(char *str, char c)
 	return (i);
 }
 
-int	is_valid_num(char *num)
+/* Skip Sapces at the beginnig */
+int	skip_spcs(char *str)
 {
 	int	i;
-	int	nbr;
 
-	i = 0;
-	if (!num)
+	if (!str)
 		return (0);
-	nbr = ft_atoi(num);
-	while (num[i])
-	{
-		if ((num[i] != ' ' && !ft_isdigit(num[i])) || (nbr < 0 && nbr > 255))
-			return (0);
+	i = 0;
+	while (str[i] && str[i] == ' ')
 		i++;
-	}
-	return (1);
-}
-
-int	count_sc(char **arr)
-{
-	int	i;
-
-	i = 0;
-	if (!arr)
-		return (0);
-	while (arr[i])
-		i ++;
 	return (i);
 }

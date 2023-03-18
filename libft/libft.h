@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 19:31:43 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:31:43 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 12:26:50 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 char	*get_next_line(int fd);
 void	ft_putstr(char *str);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memset(void *b, int c, size_t len);
 char	**ft_split(char *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strjoin(char *s1, char *s2);

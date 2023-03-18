@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_utils_2.c                                   :+:      :+:    :+:   */
+/*   rgb_colors_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 10:38:55 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:52:01 by aelkhali         ###   ########.fr       */
+/*   Created: 2023/03/18 16:02:43 by aelkhali          #+#    #+#             */
+/*   Updated: 2023/03/18 17:29:48 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int	is_filled(t_data *data)
+int	is_valid_num(char *num)
 {
-	if (!data)
+	int	i;
+	int	nbr;
+
+	i = 0;
+	if (!num)
 		return (0);
-	if (*data->no && *data->so && *data->we && *data->ea
-		&& data->f[0] != -1 && data->c[0] != -1)
-		return (1);
-	return (0);
+	nbr = ft_atoi(num);
+	if (nbr < 0 || nbr > 255)
+		return (0);
+	while (num[i])
+	{
+		if (!ft_isdigit(num[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	extract_colors(t_data **data, char *line, int flag)
@@ -28,16 +38,16 @@ int	extract_colors(t_data **data, char *line, int flag)
 	char	*tmp;
 	char	**splited;
 
-	if (!line || !data)
-		return (EXIT_FAILURE);
 	i = -1;
-	tmp = ft_strtrim(ft_strchr(line, ' '), " \t\n");
-	splited = ft_split(tmp, ',');
-	if (!splited || !tmp || count_sc(splited) < 3)
+	if (count_char(line, ',') != 2)
 		return (ft_error("Try with correct RGB Colors!"), exit(1), 1);
+	splited = ft_split(ft_strchr(line, ' '), ',');
+	if (!splited)
+		return (ft_error("Split Failure\n"), exit(1), 1);
 	while (splited[++i])
 	{
-		if (is_valid_num(splited[i]))
+		tmp = ft_strtrim(splited[i], " ");
+		if (is_valid_num(tmp))
 		{
 			if (flag)
 				(*data)->f[i] = ft_atoi(splited[i]);
@@ -46,6 +56,7 @@ int	extract_colors(t_data **data, char *line, int flag)
 		}
 		else
 			return (ft_error("Try with Valid RGB Colors!"), exit(1), 1);
+		free(tmp);
 	}
-	return (free_array(splited), free(tmp), EXIT_SUCCESS);
+	return (free_array(splited), EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 11:17:28 by aelkhali          #+#    #+#              #
-#    Updated: 2023/03/18 10:25:43 by aelkhali         ###   ########.fr        #
+#    Updated: 2023/03/18 12:27:12 by aelkhali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ FLAGS = -Wall -Wextra -Werror
 #FILES------
 CFILES = ft_putstr.c ft_split.c ft_strchr.c ft_strjoin.c ft_strcmp.c ft_strlcpy.c ft_strlen.c \
 		ft_substr.c get_next_line.c ft_putnbr_fd.c ft_putchar_fd.c ft_putstr_fd.c ft_strncmp.c \
-		ft_strrchr.c ft_strtrim.c ft_strdup.c ft_isdigit.c ft_atoi.c
+		ft_strrchr.c ft_strtrim.c ft_strdup.c ft_isdigit.c ft_atoi.c ft_calloc.c ft_memcpy.c ft_bzero.c ft_memset.c\
 			
 OBJS = $(CFILES:.c=.o)
 

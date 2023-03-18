@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:59:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 10:54:08 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:35:10 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,31 @@ typedef struct map_data
 	int		f[3];
 	int		c[3];
 	char	**map;
+	int		p_x;
+	int		p_y;
 }			t_data;
 
 /* gobal functions */
 void	ft_error(char *msg);
+int		skip_spcs(char *str);
 
-/* reading functions */
+/* reading and init functions */
 char	*get_next_line(int fd);
-
-/* parsing functions */
 void	init_data(t_data **data);
+
+/* map extract functions */
+char	*extract_map_content(t_data **data, char *line, int fd, char *path);
+int		map_size(char *line, int fd);
+int		cpy_map_content(t_data **data, char *line, int fd2);
+int		find_and_count_players(t_data *map);
+int		count_char(char *str, char c);
+int		is_content_valid(char *map);
+int		is_filled(t_data *data);
+int		is_wall(char *map);
+
+/*Colors extract functions */
 int		extract_colors(t_data **data, char *line, int flag);
 int		is_valid_num(char *num);
-int		count_char(char *str, char c);
-int		count_sc(char **arr);
 
 /* memory cleaning functions */
 void	free_array(char **strs);
