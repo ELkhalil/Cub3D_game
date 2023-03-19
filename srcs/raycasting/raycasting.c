@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:59:43 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 20:18:17 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:09:22 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #define GREEN_PIXEL 0xFF00
 #define RED_PIXEL 0xFF0000
 #define WHITE_PIXEL 0x2389da
+# define GREY 0x808080
 
 int	key_hook_hundler(int key_id)
 {
@@ -34,12 +35,6 @@ int	close_game()
 	exit(0);
 }
 
-int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
-{
-	return (red << 16 | green << 8 | blue);
-}
-
-
 typedef struct s_rect
 {
 	int	x;
@@ -50,7 +45,6 @@ typedef struct s_rect
 }	t_rect;
 
 /* The x and y coordinates of the rect corresponds to its upper left corner. */
-
 int render_rect(t_game *game, t_rect rect)
 {
 	int	i;
@@ -65,6 +59,11 @@ int render_rect(t_game *game, t_rect rect)
 		++i;
 	}
 	return (0);
+}
+
+void render_player(t_game *game, int color)
+{
+	render_rect(game, (t_rect){game->data->p_x * 65, game->data->p_y * 65, 65, 65, color});
 }
 
 void	render_background(t_game *game, int color)
@@ -84,10 +83,9 @@ void	render_background(t_game *game, int color)
 
 int	render(t_game *game)
 {
-    render_background(game, WHITE_PIXEL);
-	render_rect(game, (t_rect){1920 - 100, 1080 - 100,
-			100, 100, GREEN_PIXEL});
-	render_rect(game, (t_rect){0, 0, 100, 100, RED_PIXEL});
+    render_background(game, GREY);
+	render_player(game, GREEN_PIXEL);
+	// render_rect(game, (t_rect){0, 0, 100, 100, RED_PIXEL});
 	return (0);
 }
 
@@ -96,7 +94,7 @@ int raycaster(t_game *game)
     game->mlx = mlx_init();
     if (!game->mlx)
         return (ft_error("MLX INIT FAILED\n"), exit(1), 1);
-    game->win = mlx_new_window(game->mlx, 1920, 1080, "Cub3D");
+    game->win = mlx_new_window(game->mlx, HEIGHT, WIDTH, "Cub3D");
     if (!game->mlx)
         return (ft_error("WINDOW INIT FAILED\n"), exit(1), 1);
     mlx_hook(game->win, 2, 0, key_hook_hundler, game);

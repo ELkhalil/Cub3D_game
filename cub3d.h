@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:06:26 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 20:06:10 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:05:28 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "./libft/libft.h"
 # include "./srcs/parsing/parser.h"
 
+# define HEIGHT 1920
+# define WIDTH 1080
 
 /* Game Play infos*/
 typedef struct sol_game
