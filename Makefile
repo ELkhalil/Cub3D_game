@@ -6,7 +6,7 @@
 #    By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 15:53:10 by aelkhali          #+#    #+#              #
-#    Updated: 2023/03/18 16:30:57 by aelkhali         ###   ########.fr        #
+#    Updated: 2023/03/19 14:29:19 by aelkhali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ STOP = \033[0m
 
 # Commands And Flags :
 CC = cc 
-FLAGS =	-Wall -Wextra -Werror  #-fsanitize=address -g
+FLAGS =	-Wall -Wextra -Werror # -fsanitize=address -g
 MLX = -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 

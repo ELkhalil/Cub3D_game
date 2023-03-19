@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:09:49 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 17:28:20 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 14:33:44 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	fill_data(t_data **data, char *line, int fd, char *path)
 	while (line)
 	{
 		if (!ft_strncmp(line, "NO ", 3))
-			(*data)->no = ft_strtrim(ft_strchr(line, ' '), " \t");
+			(*data)->no = ft_strtrim(ft_strchr(line, ' '), " ");
 		else if (!ft_strncmp(line, "SO ", 3))
-			(*data)->so = ft_strtrim(ft_strchr(line, ' '), " \t");
+			(*data)->so = ft_strtrim(ft_strchr(line, ' '), " ");
 		else if (!ft_strncmp(line, "WE ", 3))
-			(*data)->we = ft_strtrim(ft_strchr(line, ' '), " \t");
+			(*data)->we = ft_strtrim(ft_strchr(line, ' '), " ");
 		else if (!ft_strncmp(line, "EA ", 3))
-			(*data)->ea = ft_strtrim(ft_strchr(line, ' '), " \t");
+			(*data)->ea = ft_strtrim(ft_strchr(line, ' '), " ");
 		else if (!ft_strncmp(line, "F ", 2))
 			extract_colors(data, line, 1);
 		else if (!ft_strncmp(line, "C ", 2))

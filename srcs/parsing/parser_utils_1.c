@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 10:34:34 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 17:46:59 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:52:21 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_data(t_data **data)
 	(*data)->f[0] = -1;
 	(*data)->c[0] = -1;
 	(*data)->map = NULL;
+	(*data)->map_height = 0;
 }
 
 /* free double pointer array */

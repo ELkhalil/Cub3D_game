@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:59:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 17:34:38 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:51:44 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct map_data
 	char	*so;
 	char	*we;
 	char	*ea;
+	int		map_height;
 	int		f[3];
 	int		c[3];
 	char	**map;
@@ -37,9 +38,9 @@ void	init_data(t_data **data);
 
 /* map extract functions */
 char	*extract_map_content(t_data **data, char *line, int fd, char *path);
-int		map_size(char *line, int fd);
+int		map_size(t_data **data, char *line, int fd);
 int		cpy_map_content(t_data **data, char *line, int fd2);
-int		find_and_count_players(t_data *map);
+int		find_and_count_players(t_data *map, int i, int j);
 int		count_char(char *str, char c);
 int		is_content_valid(char *map);
 int		is_filled(t_data *data);

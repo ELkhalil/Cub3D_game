@@ -6,17 +6,16 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:24:37 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 17:25:44 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 14:05:44 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-/* Calculate map size for allocation */
-int	map_size(char *line, int fd)
+/* Calculate map size for allocation + some parsing checks */
+int	map_size(t_data **data, char *line, int fd)
 {
 	int		x;
-	char	c;
 
 	x = 0;
 	if (!line)
@@ -26,8 +25,7 @@ int	map_size(char *line, int fd)
 	while (line)
 	{
 		x++;
-		c = *(line + skip_spcs(line));
-		if (!*line || (c != '1' && c != '\0' && !is_content_valid(line)))
+		if (!*line || !is_content_valid(line))
 			return (ft_error("Try map with (0, 1, N, S, E, W)\n"), exit(1), 1);
 		if (line)
 			free(line);
@@ -35,6 +33,7 @@ int	map_size(char *line, int fd)
 	}
 	close(fd);
 	line = NULL;
+	(*data)->map_height = x;
 	return (x);
 }
 
@@ -52,6 +51,6 @@ int	cpy_map_content(t_data **data, char *line, int fd2)
 	}
 	(*data)->map[i] = NULL;
 	close(fd2);
-	find_and_count_players(*data);
+	find_and_count_players(*data, 0, 0);
 	return (EXIT_SUCCESS);
 }
