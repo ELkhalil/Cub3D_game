@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:59:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 12:51:44 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 16:31:25 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		is_filled(t_data *data);
 int		is_wall(char *map);
 
 /*Colors extract functions */
-int		extract_colors(t_data **data, char *line, int flag);
+int		extract_colors(t_data **data, char *line, int flag, int i);
 int		is_valid_num(char *num);
 
 /* memory cleaning functions */

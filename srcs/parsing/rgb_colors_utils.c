@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 16:02:43 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/18 17:29:48 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 16:31:36 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,11 @@ int	is_valid_num(char *num)
 	return (1);
 }
 
-int	extract_colors(t_data **data, char *line, int flag)
+int	extract_colors(t_data **data, char *line, int flag, int i)
 {
-	int		i;
 	char	*tmp;
 	char	**splited;
 
-	i = -1;
 	if (count_char(line, ',') != 2)
 		return (ft_error("Try with correct RGB Colors!"), exit(1), 1);
 	splited = ft_split(ft_strchr(line, ' '), ',');
@@ -58,5 +56,7 @@ int	extract_colors(t_data **data, char *line, int flag)
 			return (ft_error("Try with Valid RGB Colors!"), exit(1), 1);
 		free(tmp);
 	}
+	if (i != 3)
+		return (ft_error("Try with Valid Number of RGB Colors!"), exit(1), 1);
 	return (free_array(splited), EXIT_SUCCESS);
 }

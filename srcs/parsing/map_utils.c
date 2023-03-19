@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:24:37 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 14:05:44 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 15:37:41 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	cpy_map_content(t_data **data, char *line, int fd2)
 	i = 0;
 	while (line)
 	{
+		if (*line == '\0')
+			return (ft_error("HHHHHHHH\n"), exit(1), 1);
 		(*data)->map[i] = line;
 		line = get_next_line(fd2);
 		i++;

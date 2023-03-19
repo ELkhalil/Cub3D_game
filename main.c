@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:57:37 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 14:31:47 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 16:34:13 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	print_data(t_data *data)
 
 	/*print map data */
 	printf("\n-------------------------------\n");
-	while (++i <= data->map_height)
+	while (++i < data->map_height)
 		printf("%s\n", data->map[i]);
 	printf("\n-------------------------------\n");
 }

@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 16:26:51 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 13:49:42 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 15:46:07 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ int	check_surrounds(t_data *data, int i, int j)
 
 	len = ft_strlen(data->map[i]);
 	map = data->map;
-	if (map[i][j] == '0')
+	if (map[i][j] == '0' || map[i][j] == 'N'
+		|| map[i][j] == 'E' || map[i][j] == 'W' || map[i][j] == 'S')
 	{
 		if (i == 0 || j == 0 || i == data->map_height - 1 || j == len - 1)
-			return (ft_error("Map is not surrounded by walls\n"), exit(1), 1);
+			return (ft_error("Not surrounded by walls\n"), exit(1), 1);
 		if ((j > (int)ft_strlen(map[i - 1]))
 			|| (j > (int)ft_strlen(map[i + 1])))
-			return (ft_error("Map is not surrounded by walls\n"), exit(1), 1);
+			return (ft_error("Not surrounded by walls\n"), exit(1), 1);
 		if (map[i][j + 1] == '\0' || map[i - 1][j] == '\0'
 			|| map[i + 1][j] == '\0')
-			return (ft_error("Map is not surrounded by walls\n"), exit(1), 1);
+			return (ft_error("Not surrounded by walls\n"), exit(1), 1);
 		if (map[i][j - 1] == ' ' || map[i][j + 1] == ' '
 			|| map[i - 1][j] == ' ' || map[i + 1][j] == ' ')
-			return (ft_error("Map is not surrounded by walls\n"), exit(1), 1);
+			return (ft_error("Not surrounded by walls\n"), exit(1), 1);
 	}
 	return (EXIT_SUCCESS);
 }

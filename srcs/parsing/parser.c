@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:09:49 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 14:33:44 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 16:31:45 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ int	fill_data(t_data **data, char *line, int fd, char *path)
 {
 	while (line)
 	{
-		if (!ft_strncmp(line, "NO ", 3))
+		if (!ft_strncmp(line, "NO ", 3) && !(*data)->no)
 			(*data)->no = ft_strtrim(ft_strchr(line, ' '), " ");
-		else if (!ft_strncmp(line, "SO ", 3))
+		else if (!ft_strncmp(line, "SO ", 3) && !(*data)->so)
 			(*data)->so = ft_strtrim(ft_strchr(line, ' '), " ");
-		else if (!ft_strncmp(line, "WE ", 3))
+		else if (!ft_strncmp(line, "WE ", 3) && !(*data)->we)
 			(*data)->we = ft_strtrim(ft_strchr(line, ' '), " ");
-		else if (!ft_strncmp(line, "EA ", 3))
+		else if (!ft_strncmp(line, "EA ", 3) && !(*data)->ea)
 			(*data)->ea = ft_strtrim(ft_strchr(line, ' '), " ");
-		else if (!ft_strncmp(line, "F ", 2))
-			extract_colors(data, line, 1);
-		else if (!ft_strncmp(line, "C ", 2))
-			extract_colors(data, line, 0);
+		else if (!ft_strncmp(line, "F ", 2) && (*data)->f[0] == -1)
+			extract_colors(data, line, 1, -1);
+		else if (!ft_strncmp(line, "C ", 2) && (*data)->c[0] == -1)
+			extract_colors(data, line, 0, -1);
 		else if (*(line + skip_spcs(line)) == '1' && is_filled(*data))
 			line = extract_map_content(data, line, fd, path);
 		else if (!*(line + skip_spcs(line)))
@@ -49,12 +49,14 @@ t_data	*parse_game_data(char *map_path)
 
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		return (ft_error("Error Opening The File"), exit(1), NULL);
+		return (ft_error("File not opened\n"), exit(1), NULL);
 	data = malloc(sizeof(t_data));
 	if (!data)
 		return (NULL);
 	line = get_next_line(fd);
 	init_data(&data);
 	fill_data(&data, line, fd, map_path);
+	if (data->map_height == 0)
+		return (ft_error("Empty Map\n"), exit(1), NULL);
 	return (data);
 }

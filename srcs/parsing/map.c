@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 16:08:45 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 14:31:33 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/03/19 15:41:14 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*extract_map_content(t_data **data, char *line, int fd, char *path)
 		return (ft_error("Map Allocation Failed\n"), exit(1), NULL);
 	fd2 = open(path, O_RDONLY);
 	if (fd2 < 0)
-		return (ft_error("Error Opening The File"), exit(1), NULL);
+		return (ft_error("File not opened\n"), exit(1), NULL);
 	buff = get_next_line(fd2);
 	while (buff)
 	{
