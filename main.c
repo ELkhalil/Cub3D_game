@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:57:37 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 16:34:13 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:28:11 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/* temporary function */
 void	print_data(t_data *data)
 {
 	int i;
@@ -37,19 +36,23 @@ void	print_data(t_data *data)
 	/*print map data */
 	printf("\n-------------------------------\n");
 	while (++i < data->map_height)
-		printf("%s\n", data->map[i]);
+		printf("%s**\n", data->map[i]);
 	printf("\n-------------------------------\n");
 }
+
 
 int	main(int ac, char **av)
 {
 	t_data	*data;
+	t_game	*game;
 
+	game = calloc(1, sizeof(t_game));
 	if (ac == 1 || ac > 2 || ft_strncmp(ft_strrchr(av[1], '.'), ".cub", 5))
 		return (ft_error("Invalid arguments\n"), EXIT_FAILURE);
 	data = parse_game_data(av[1]);
 	if (!data)
 		return (ft_error("while Setting Game data\n"), EXIT_FAILURE);
-	print_data(data);
+	game->data = data;
+	raycaster(game);
 	return (EXIT_SUCCESS);
 }
