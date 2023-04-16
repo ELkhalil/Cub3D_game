@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 10:40:49 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/15 15:48:22 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:48:45 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	render2D(t_game *game)
 			if (game->data->map[y][x] == WALL)
 				mlx_put_image_to_window(game->mlx, game->win, game->drawing.wall, u, v);
 			else
-				mlx_put_image_to_window(game->mlx, game->win, game->drawing.floor, u, v);
+				 mlx_put_image_to_window(game->mlx, game->win, game->drawing.floor, u, v);
 			u += 32;
 			x++;
 		}
@@ -106,9 +106,6 @@ int	render2D(t_game *game)
 	}
 	mlx_put_image_to_window(game->mlx, game->win, game->drawing.player \
 	, game->player.x, game->player.y);
-	// draw_line(game, game->player.x + 4, game->player.y + 4, \
-	// game->player.x + 4 + cos(game->player.rotation_angle) * 40, \
-	// game->player.y + 4 + sin(game->player.rotation_angle) * 40, RED_PIXEL);
 	render_rays(game);
 	return (1);
 }

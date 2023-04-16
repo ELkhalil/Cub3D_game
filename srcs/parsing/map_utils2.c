@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 16:26:51 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 15:46:07 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:30:20 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,9 @@ int	is_filled(t_data *data)
 {
 	if (!data)
 		return (0);
-	if (*data->no && *data->so && *data->we && *data->ea
+	if (!data->no || !data->so || !data->we || !data->ea)
+		return (0);
+	else if (*data->no && *data->so && *data->we && *data->ea
 		&& data->f[0] != -1 && data->c[0] != -1)
 		return (1);
 	return (0);

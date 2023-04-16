@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/15 13:28:00 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:55:21 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,14 @@ typedef struct s_rgb
 	int	blue;
 }	t_rgb;
 
+typedef enum s_facing
+{
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+}				t_facing;
+
 typedef enum s_position
 {
 	SOUTH = 83,
@@ -85,6 +93,7 @@ typedef struct s_player
 	double			rotation_angle;
 	double			move_speed;
 	double			rotation_speed;
+	t_ray			*rays;
 }	t_player;
 
 typedef struct s_img
@@ -134,5 +143,7 @@ int		render2D(t_game *game);
 int		key_hook_hundler(int key_id, t_game *game);
 void	*draw_image(t_game *game, int color, int w, int h);
 void	render_rays(t_game *game);
-int 	draw_line(t_game *game, int beginX, int beginY, int endX, int endY, int color);
+int		draw_line(t_game *game, int beginX, int beginY, \
+int endX, int endY, int color);
+int	check_wall(t_game *game, double x, double y);
 #endif
