@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 13:57:57 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/16 15:41:22 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:27:32 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_wall(t_game *game, double x, double y)
 
 	x1 = (int)floor(x / 32);
 	y1 = (int)floor(y / 32);
-	if (game->data->map[x1][y1] == WALL)
+	if (out_range(game, x, y) || game->data->map[x1][y1] == WALL)
 		return (1);
 	return (0);
 }

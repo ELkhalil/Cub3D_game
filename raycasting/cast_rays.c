@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 13:01:46 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/16 16:03:09 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:39:07 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	facing(double angle, t_facing facing)
 {
 	if (facing == UP)
-		return (angle >= M_PI);
+		return (!(angle > 0 && angle < PI));
 	else if (facing == DOWN)
-		return (angle < M_PI);
+		return (angle > 0 && angle < PI);
 	else if (facing == RIGHT)
-		return (angle >= 1.5 * M_PI || angle <= 0.5 * M_PI);
+		return (!(angle > 0.5 * PI && angle < 1.5 * PI));
 	else if (facing == LEFT)
-		return (angle > 0.5 * M_PI && angle < 1.5 * M_PI);
+		return (angle > 0.5 * PI && angle < 1.5 * PI);
 	return (-1);
 }
 
@@ -63,12 +63,11 @@ double	angle(double angle)
 
 t_ray	cast_one_ray(t_game *game, double ray_angle)
 {
-	t_ray		*ray;
+	t_ray		ray;
 	t_vector	step;
 	t_vector	intercept;
 	t_vector	horz_touch;
 
-	ray = calloc(sizeof(t_ray), 1);
 	intercept = set_intercept(game->player, ray_angle);
 	step = set_xystep(ray_angle);
 	horz_touch.x = intercept.x;
@@ -79,10 +78,10 @@ t_ray	cast_one_ray(t_game *game, double ray_angle)
 	{
 		if (check_wall(game, horz_touch.x, horz_touch.y))
 		{
-			ray->wall_hit.x = horz_touch.x;
-			ray->wall_hit.y = horz_touch.y;
+			ray.wall_hit.x = horz_touch.x;
+			ray.wall_hit.y = horz_touch.y;
 			draw_line(game, game->player.x, game->player.y, \
-			ray->wall_hit.x, ray->wall_hit.y, RED_PIXEL);
+			ray.wall_hit.x, ray.wall_hit.y, RED_PIXEL);
 			break ;
 		}
 		else
@@ -91,7 +90,7 @@ t_ray	cast_one_ray(t_game *game, double ray_angle)
 			horz_touch.y += step.y;
 		}
 	}
-	return (*ray);
+	return (ray);
 }
 
 void	render_rays(t_game *game)
