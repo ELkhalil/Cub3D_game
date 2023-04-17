@@ -6,13 +6,14 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 13:57:57 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/16 17:27:32 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:19:59 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
 
-int	out_range(t_game *game, double x, double y)
+
+int	check_wall(t_game *game, double x, double y)
 {
 	int	x1;
 	int	y1;
@@ -23,18 +24,12 @@ int	out_range(t_game *game, double x, double y)
 		i++;
 	x1 = (int)floor(x / 32);
 	y1 = (int)floor(y / 32);
-	return (y1 < 0 || y1 >= i || x1 < 0 || x1 >= \
-	(int)ft_strlen(game->data->map[y1]));
-}
-
-int	check_wall(t_game *game, double x, double y)
-{
-	int	x1;
-	int	y1;
-
-	x1 = (int)floor(x / 32);
-	y1 = (int)floor(y / 32);
-	if (out_range(game, x, y) || game->data->map[x1][y1] == WALL)
+	if (x1 < 0 || x1 >= i || y1 < 0 || y1 >= \
+	(int)ft_strlen(game->data->map[(int)x1]))
+	{
+		exit(1);
+	}
+	if (game->data->map[x1][y1] == WALL)
 		return (1);
 	return (0);
 }

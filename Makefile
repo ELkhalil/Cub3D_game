@@ -6,7 +6,7 @@
 #    By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 15:53:10 by aelkhali          #+#    #+#              #
-#    Updated: 2023/04/15 13:27:12 by mmounaji         ###   ########.fr        #
+#    Updated: 2023/04/17 17:09:57 by mmounaji         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ LIBFT_PATH = cd ./libft
 LIBFT = ./libft/libft.a
 PARS_SRCS = ./srcs/parsing/parser.c ./srcs/parsing/parser_utils_1.c ./srcs/parsing/rgb_colors_utils.c\
 			./srcs/parsing/map.c srcs/parsing/map_utils.c ./srcs/parsing/map_utils2.c
-RAYCAST	  = raycasting/raycasting.c raycasting/init.c raycasting/draw2d.c raycasting/moves.c raycasting/cast_rays.c
+RAYCAST	  = raycasting/raycasting.c raycasting/init.c raycasting/draw2d.c raycasting/moves.c raycasting/cast_rays.c\
+raycasting/horizontal.c raycasting/utils.c raycasting/vertical.c
 
 # loading source files :
 SRCS = main.c $(PARS_SRCS) $(RAYCAST) 

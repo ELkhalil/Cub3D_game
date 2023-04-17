@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/16 15:55:21 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:09:39 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@
 /* -------- MAP -------- */
 # define WALL '1'
 # define EMPTY '0'
-# define EXIT 'E'
 # define PLAYER 'P'
 # define FLOOR "F"
-# define CEILLING "C"
 # define NORTH_TEXTURE "NO"
 # define SOUTH_TEXTURE "SO"
 # define EAST_TEXTURE "EA"
@@ -145,5 +143,9 @@ void	*draw_image(t_game *game, int color, int w, int h);
 void	render_rays(t_game *game);
 int		draw_line(t_game *game, int beginX, int beginY, \
 int endX, int endY, int color);
-int	check_wall(t_game *game, double x, double y);
+int			check_wall(t_game *game, double x, double y);
+t_vector	horizontal_(t_game *game, double ray_angle);
+t_vector	vertical_(t_game *game, double ray_angle);
+double	angle(double ray_angle);
+int	facing(double angle, t_facing facing);
 #endif

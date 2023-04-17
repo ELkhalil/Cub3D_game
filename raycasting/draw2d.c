@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 10:40:49 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/16 15:48:45 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:42:05 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	*draw_image(t_game *game, int color, int w, int h)
 	return (game->img.img);
 }
 
-
 int	render2D(t_game *game)
 {
 	int	x;
@@ -97,7 +96,7 @@ int	render2D(t_game *game)
 			if (game->data->map[y][x] == WALL)
 				mlx_put_image_to_window(game->mlx, game->win, game->drawing.wall, u, v);
 			else
-				 mlx_put_image_to_window(game->mlx, game->win, game->drawing.floor, u, v);
+				mlx_put_image_to_window(game->mlx, game->win, game->drawing.floor, u, v);
 			u += 32;
 			x++;
 		}
