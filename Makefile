@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+         #
+#    By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 15:53:10 by aelkhali          #+#    #+#              #
-#    Updated: 2023/03/19 14:29:19 by aelkhali         ###   ########.fr        #
+#    Updated: 2023/04/27 15:27:01 by mmounaji         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ STOP = \033[0m
 
 # Commands And Flags :
 CC = cc 
-FLAGS =	-Wall -Wextra -Werror # -fsanitize=address -g
+FLAGS =	-Wall -Wextra -Werror #-fsanitize=address -g3
 MLX = -lmlx -framework OpenGL -framework AppKit
 RM = rm -rf
 
@@ -30,10 +30,11 @@ RM = rm -rf
 LIBFT_PATH = cd ./libft
 LIBFT = ./libft/libft.a
 PARS_SRCS = ./srcs/parsing/parser.c ./srcs/parsing/parser_utils_1.c ./srcs/parsing/rgb_colors_utils.c\
-			./srcs/parsing/map.c srcs/parsing/map_utils.c ./srcs/parsing/map_utils2.c 
-
+			./srcs/parsing/map.c srcs/parsing/map_utils.c ./srcs/parsing/map_utils2.c
+RAYCAST = raycasting/raycasting.c raycasting/init.c raycasting/moves.c raycasting/keys.c raycasting/utils.c\
+		  raycasting/drawing.c
 # loading source files :
-SRCS = main.c $(PARS_SRCS) 
+SRCS = main.c $(PARS_SRCS) $(RAYCAST) 
 
 all : $(NAME)
 	@echo "You Can Start Playing $(GREEN)*** $(NAME) ***"
@@ -53,3 +54,8 @@ fclean : clean
 	@echo "$(RED)Deleting The Game ... $(STOP)"
 
 re : fclean all
+
+push:
+	git add .
+	git commit -m "push"
+	git push
