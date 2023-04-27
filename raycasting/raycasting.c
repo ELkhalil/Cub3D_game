@@ -6,12 +6,11 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:36:40 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/27 15:29:36 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:15:23 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
-
 
 int	get_rgb_color(int red, int green, int blue)
 {
