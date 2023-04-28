@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:36:40 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/27 17:15:23 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:36:31 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	_cub3d(void *game)
 	t_game	*leet3d;
 
 	leet3d = game;
-	mlx_clear_window(leet3d->mlx, leet3d->win_ptr);
 	while (leet3d->i < leet3d->window_w)
 	{
 		_default_draw_init(leet3d);

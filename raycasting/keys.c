@@ -1,6 +1,19 @@
 
 #include "raycasting.h"
 
+void	rebuild_image(t_game *leet3d)
+{
+	mlx_clear_window(leet3d->mlx, leet3d->win_ptr);
+	mlx_destroy_image(leet3d->mlx, leet3d->img.img);
+	leet3d->img.img = mlx_new_image(leet3d->mlx, leet3d->window_w, \
+	leet3d->window_h);
+	leet3d->img.addr = (int *)mlx_get_data_addr(leet3d->img.img, \
+	&(leet3d->img.bits_per_pixel), &(leet3d->img.line_length), \
+	&(leet3d->img.endian));
+	leet3d->i = 0;
+	_cub3d(leet3d);
+}
+
 int _key_press(int key, t_game *leet3d)
 {
 	if (key == 53 || key == 12)

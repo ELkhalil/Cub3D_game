@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/27 15:18:44 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/28 15:48:47 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void	_leet3d_init1(t_game *leet3d);
 void	_leet3d_init1(t_game *leet3d);
 int		close_game(void);
 void	_drawing_textures(t_game *leet3d);
+void	rebuild_image(t_game *leet3d);
 void	_setup_textures(t_game *leet3d);
 void	_drawing_floor(t_game *leet3d);
 void	_drawing_ceiling(t_game *leet3d);
