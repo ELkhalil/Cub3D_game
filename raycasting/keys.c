@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keys.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/29 11:42:06 by mmounaji          #+#    #+#             */
+/*   Updated: 2023/04/29 11:44:10 by mmounaji         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "raycasting.h"
 
@@ -14,7 +25,7 @@ void	rebuild_image(t_game *leet3d)
 	_cub3d(leet3d);
 }
 
-int _key_press(int key, t_game *leet3d)
+int	_key_press(int key, t_game *leet3d)
 {
 	if (key == 53 || key == 12)
 		close_game();
@@ -33,4 +44,19 @@ int _key_press(int key, t_game *leet3d)
 	else
 		return (1);
 	return (0);
+}
+
+int	_mouse_events(int key, int x, int y, t_game *leet3d)
+{
+	(void)x;
+	(void)y;
+	if (key == 1)
+		_rotate_player(leet3d, leet3d->rotation_angle);
+	else if (key == 2)
+		_rotate_player(leet3d, -(leet3d->rotation_angle));
+	else if (key == 4)
+		_move_back(leet3d);
+	else if (key == 5)
+		_move_forward(leet3d);
+	return (key);
 }

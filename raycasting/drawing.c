@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:13:35 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/27 15:17:21 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/29 11:48:24 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,13 @@ void	_drawing_floor(t_game *leet3d)
 void	_setup_textures(t_game *leet3d)
 {
 	if (leet3d->side == 0 && leet3d->step.x == -1)
-		leet3d->texture.img = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
-		data->no, &leet3d->texture.width, &leet3d->texture.height);
+		leet3d->texture.img = leet3d->n;
 	else if (leet3d->side == 0 && leet3d->step.x == 1)
-		leet3d->texture.img = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
-		data->so, &leet3d->texture.width, &leet3d->texture.height);
+		leet3d->texture.img = leet3d->s;
 	else if (leet3d->side == 1 && leet3d->step.y == -1)
-		leet3d->texture.img = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
-		data->we, &leet3d->texture.width, &leet3d->texture.height);
+		leet3d->texture.img = leet3d->w;
 	else if (leet3d->side == 1 && leet3d->step.y == 1)
-		leet3d->texture.img = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
-		data->ea, &leet3d->texture.width, &leet3d->texture.height);
+		leet3d->texture.img = leet3d->e;
 	leet3d->texture.addr = (int *)mlx_get_data_addr(leet3d->texture.img, \
 		&leet3d->texture.bits_per_pixel, &leet3d->texture.line_length, \
 		&leet3d->texture.endian);

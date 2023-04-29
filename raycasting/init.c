@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:38:55 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/28 17:43:30 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/29 11:47:32 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,18 @@ void	_default_draw_init(t_game	*leet3d)
 		leet3d->side_dist.x = (leet3d->map.x + 1.0 - leet3d->pos.x) \
 		* leet3d->delta_dist.x;
 	}
+}
+
+void	_load_textures(t_game *leet3d)
+{
+	leet3d->n = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
+		data->no, &leet3d->texture.width, &leet3d->texture.height);
+	leet3d->s = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
+		data->so, &leet3d->texture.width, &leet3d->texture.height);
+	leet3d->w = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
+		data->we, &leet3d->texture.width, &leet3d->texture.height);
+	leet3d->e = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
+		data->ea, &leet3d->texture.width, &leet3d->texture.height);
+	if (!leet3d->n || !leet3d->n || !leet3d->w || !leet3d->e)
+		exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/28 15:48:47 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/29 11:48:43 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void	_move_left(t_game *leet3d);
 void	_move_forward(t_game *leet3d);
 int		_key_press(int key, t_game *leet3d);
 void	_default_draw_init(t_game	*leet3d);
+void	_load_textures(t_game *leet3d);
 void	_leet3d_init1(t_game *leet3d);
 void	_leet3d_init1(t_game *leet3d);
 int		close_game(void);
@@ -125,5 +126,6 @@ void	rebuild_image(t_game *leet3d);
 void	_setup_textures(t_game *leet3d);
 void	_drawing_floor(t_game *leet3d);
 void	_drawing_ceiling(t_game *leet3d);
+int		_mouse_events(int key, int x, int y, t_game *leet3d);
 int		get_rgb_color(int red, int green, int blue);
 #endif
