@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/29 20:29:00 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/30 19:44:29 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 # define WALL '1'
 # define EMPTY '0'
 # define PLAYER 'P'
-# define FLOOR "F"
 # define NORTH_TEXTURE "NO"
 # define SOUTH_TEXTURE "SO"
 # define EAST_TEXTURE "EA"
@@ -101,7 +100,8 @@ typedef struct s_game
 	double		tex_step;
 	int			color;
 	t_vector	step;
-	t_vector	_texture;
+	int			_texturex;
+	int			_texturey;
 	int			hit;
 	int			side;
 	t_vector	map;

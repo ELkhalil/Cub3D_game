@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:24:49 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/30 16:53:05 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/30 20:41:11 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,13 @@ void	_move_back(t_game *leet3d)
 
 void	_move_right(t_game *leet3d)
 {
-	int	x;
-	int	y;
-
-	x = (int)leet3d->pos.x;
-	y = (int)(leet3d->pos.y + leet3d->dir.y + leet3d->plane.y);
-	if (leet3d->data->map[x][y] != WALL)
+	if (leet3d->data->map[(int)(leet3d->pos.x - leet3d->dir.x + leet3d->plane.x)][(int)leet3d->pos.y] != WALL)
 	{
 		leet3d->pos.x += leet3d->plane.x * leet3d->move_speed;
+		rebuild_image(leet3d);
+	}
+	if (leet3d->data->map[(int)leet3d->pos.x][(int)(leet3d->pos.y + leet3d->dir.y + leet3d->plane.y)] != WALL)
+	{
 		leet3d->pos.y += leet3d->plane.y * leet3d->move_speed;
 		rebuild_image(leet3d);
 	}
@@ -75,14 +74,13 @@ void	_move_right(t_game *leet3d)
 
 void	_move_left(t_game *leet3d)
 {
-	int	x;
-	int	y;
-
-	x = (int)leet3d->pos.x;
-	y = (int)(leet3d->pos.y + leet3d->dir.y - leet3d->plane.y);
-	if (leet3d->data->map[x][y] != WALL)
+	if (leet3d->data->map[(int)(leet3d->pos.x - leet3d->dir.x - leet3d->plane.x)][(int)(leet3d->pos.y)] != WALL)
 	{
 		leet3d->pos.x -= leet3d->plane.x * leet3d->move_speed;
+		rebuild_image(leet3d);
+	}
+	if (leet3d->data->map[(int)leet3d->pos.x][(int)(leet3d->pos.y - leet3d->dir.y - leet3d->plane.y)] != WALL)
+	{
 		leet3d->pos.y -= leet3d->plane.y * leet3d->move_speed;
 		rebuild_image(leet3d);
 	}

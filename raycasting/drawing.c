@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:13:35 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/29 11:48:24 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/30 19:46:15 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ void	_setup_textures(t_game *leet3d)
 	else
 		leet3d->wallx = leet3d->pos.x + leet3d->perp_wall_dist * \
 		leet3d->raydir.x;
-	leet3d->wallx -= (int)((leet3d->wallx));
-	leet3d->_texture.x = (int)(leet3d->wallx * (double)(leet3d->texture.width));
+	leet3d->wallx -= floor(leet3d->wallx);
+	leet3d->_texturex = (int)(leet3d->wallx * (double)(leet3d->texture.width));
 	if (leet3d->side == 0 && leet3d->raydir.x > 0)
-		leet3d->_texture.x = leet3d->texture.width - leet3d->_texture.x - 1;
+		leet3d->_texturex = leet3d->texture.width - leet3d->_texturex - 1;
 	if (leet3d->side == 1 && leet3d->raydir.x < 0)
-		leet3d->_texture.x = leet3d->texture.width - leet3d->_texture.x - 1;
+		leet3d->_texturex = leet3d->texture.width - leet3d->_texturex - 1;
 	leet3d->tex_step = 1.0 * leet3d->texture.height / leet3d->line_height;
 	leet3d->tex_pos = (leet3d->draw_start - leet3d->window_h \
 		/ 2 + leet3d->line_height / 2) * leet3d->tex_step;
@@ -73,11 +73,11 @@ void	_drawing_textures(t_game *leet3d)
 	y = leet3d->draw_start;
 	while (y < leet3d->draw_end)
 	{
-		leet3d->_texture.y = (int)leet3d->tex_pos & \
+		leet3d->_texturey = (int)leet3d->tex_pos & \
 		(leet3d->texture.height - 1);
 		leet3d->tex_pos += leet3d->tex_step;
 		leet3d->color = leet3d->texture.addr[leet3d->texture.height \
-		* (int)leet3d->_texture.y + (int)leet3d->_texture.x];
+		*leet3d->_texturey + leet3d->_texturex];
 		leet3d->img.addr[y * (leet3d->window_w) + (leet3d->i)] = leet3d->color;
 		y++;
 	}
