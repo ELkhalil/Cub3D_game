@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/29 11:48:43 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/29 20:29:00 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,18 @@ typedef struct s_img
 	int			endian;
 }	t_img;
 
+typedef struct s_minimap
+{
+	t_img	img;
+	int		width;
+	int		height;
+	int		x;
+	int		y;
+}	t_minimap;
+
 typedef struct s_game
 {
+	t_minimap	minimap;
 	void		*mlx;
 	void		*win_ptr;
 	t_data		*data;
@@ -122,10 +132,12 @@ void	_leet3d_init1(t_game *leet3d);
 void	_leet3d_init1(t_game *leet3d);
 int		close_game(void);
 void	_drawing_textures(t_game *leet3d);
+int		_out_range(char **map, int x, int y);
 void	rebuild_image(t_game *leet3d);
 void	_setup_textures(t_game *leet3d);
 void	_drawing_floor(t_game *leet3d);
 void	_drawing_ceiling(t_game *leet3d);
 int		_mouse_events(int key, int x, int y, t_game *leet3d);
 int		get_rgb_color(int red, int green, int blue);
+void	_draw_minimap(t_game	*leet3d);
 #endif

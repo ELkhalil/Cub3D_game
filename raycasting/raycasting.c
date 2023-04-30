@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:36:40 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/28 17:36:31 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/30 10:16:39 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int _raycaster(t_game *leet3d)
 			leet3d->map.y += leet3d->step.y;
 			leet3d->side = 1;
 		}
-		if (leet3d->data->map[(int)leet3d->map.x][(int)leet3d->map.y] == WALL)
+		if (!_out_range(leet3d->data->map, leet3d->map.y, leet3d->map.x) && leet3d->data->map[(int)leet3d->map.x][(int)leet3d->map.y] == WALL)
 			leet3d->hit = 1;
 	}
 	if (leet3d->side == 0)

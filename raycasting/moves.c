@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:24:49 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/28 15:52:11 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/30 11:19:21 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	_move_forward(t_game *leet3d)
 		leet3d->pos.y += leet3d->dir.y * leet3d->move_speed;
 		rebuild_image(leet3d);
 	}
+	else
+		_move_right(leet3d);
 }
 
 void	_move_back(t_game *leet3d)
@@ -56,6 +58,8 @@ void	_move_back(t_game *leet3d)
 		leet3d->pos.y -= leet3d->dir.y * leet3d->move_speed;
 		rebuild_image(leet3d);
 	}
+	else
+		_move_left(leet3d);
 }
 
 void	_move_right(t_game *leet3d)
