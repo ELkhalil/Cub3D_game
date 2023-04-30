@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:38:55 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/30 19:35:42 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/04/30 21:49:18 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	_leet3d_init1(t_game *leet3d)
 	leet3d->img.addr = (int *)mlx_get_data_addr(leet3d->img.img, \
 	&(leet3d->img.bits_per_pixel), &(leet3d->img.line_length), \
 	&(leet3d->img.endian));
-	leet3d->rotation_angle = 0.2;
-	leet3d->move_speed = 0.4;
+	leet3d->rotation_angle = 0.4;
+	leet3d->move_speed = 1.0;
 	leet3d->plane.x = 0.0;
 	leet3d->plane.y = 0.66;
 	leet3d->pos.x = leet3d->data->p_y;
