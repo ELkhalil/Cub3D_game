@@ -6,7 +6,7 @@
 #    By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 15:53:10 by aelkhali          #+#    #+#              #
-#    Updated: 2023/04/29 20:22:01 by mmounaji         ###   ########.fr        #
+#    Updated: 2023/04/30 17:02:53 by mmounaji         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,5 +57,5 @@ re : fclean all
 
 push:
 	git add .
-	git commit -m "reduce memory usage"
+	git commit -m "wall collision"
 	git push
