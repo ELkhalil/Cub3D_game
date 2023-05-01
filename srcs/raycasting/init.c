@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:38:55 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/05/01 17:03:36 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/05/01 19:38:42 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,5 @@ void	_load_textures(t_game *leet3d)
 	leet3d->e = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
 		data->ea, &leet3d->texture.width, &leet3d->texture.height);
 	if (!leet3d->n || !leet3d->n || !leet3d->w || !leet3d->e)
-		exit(1);
+		return (ft_error("Invalid Textures\n"));
 }

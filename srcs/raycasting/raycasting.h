@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/05/01 18:10:32 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/01 19:22:14 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define MINI_MAP_W 200
 # define MINI_TILE 20
 
-# include "../cub3d.h"
+# include "../../cub3d.h"
 
 /* -------- KEY VALUES -------- */
 # define RIGHT_M 2
@@ -76,6 +76,15 @@ typedef struct s_img
 	int			line_length;
 	int			endian;
 }	t_img;
+
+typedef	struct tile
+{
+	int		tile_row;
+	int		tile_col;
+	int		map_row;
+	int		map_col;
+	int		is_player;
+}	t_tile;
 
 typedef struct s_game
 {
@@ -137,6 +146,12 @@ void	_drawing_floor(t_game *leet3d);
 void	_drawing_ceiling(t_game *leet3d);
 int		_mouse_events(int key, int x, int y, t_game *leet3d);
 int		get_rgb_color(int red, int green, int blue);
+
+
+/* MiniMap_Utils */
 void	_init_minimap(t_game *game);
+void	set_pixel(t_img *img, int x, int y, int color);
+int		get_color(t_game *game, int x, int y);
+int		wach_wall(t_game *game, int x, int y);
 
 #endif
