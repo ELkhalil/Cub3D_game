@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:57:37 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/04/29 11:43:07 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/05/01 19:54:13 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int ac, char **av)
 	_leet3d_init1(&leet3d);
 	_load_textures(&leet3d);
 	mlx_hook(leet3d.win_ptr, 2, 0, &_key_press, &leet3d);
+	mlx_hook(leet3d.win_ptr, 17, 0, &close_game, &leet3d);
 	mlx_loop_hook(leet3d.mlx, _cub3d, &leet3d);
 	mlx_hook(leet3d.win_ptr, 4, 0, &_mouse_events, &leet3d);
 	mlx_loop(leet3d.mlx);
