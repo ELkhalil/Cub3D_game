@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:36:40 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/30 13:44:29 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:16:17 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ int	_raycaster(t_game *leet3d)
 void	_distance_setup(t_game *leet3d)
 {
 	if (!leet3d->perp_wall_dist)
-	{
 		leet3d->perp_wall_dist = 1;
-	}
 	leet3d->line_height = (int)(leet3d->window_h / leet3d->perp_wall_dist);
 	leet3d->draw_start = -leet3d->line_height / 2 + leet3d->window_h / 2;
 	if (leet3d->draw_start < 0)
