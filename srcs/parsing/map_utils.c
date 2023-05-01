@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:24:37 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 15:37:41 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:55:55 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,20 @@ int	cpy_map_content(t_data **data, char *line, int fd2)
 	close(fd2);
 	find_and_count_players(*data, 0, 0);
 	return (EXIT_SUCCESS);
+}
+
+int	calculate_map_width(char **map, int height)
+{
+	size_t	width;
+	int		i;
+
+	i = 0;
+	width = ft_strlen(map[i]);
+	while (i <= height)
+	{
+		if (ft_strlen(map[i]) > width)
+			width = ft_strlen(map[i]);
+		i++;
+	}
+	return ((int)width);
 }

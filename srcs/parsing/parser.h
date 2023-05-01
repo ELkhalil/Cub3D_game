@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:59:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 16:31:25 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:56:44 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct map_data
 	char	*we;
 	char	*ea;
 	int		map_height;
+	int		map_width;
 	int		f[3];
 	int		c[3];
 	char	**map;
@@ -37,6 +38,7 @@ char	*get_next_line(int fd);
 void	init_data(t_data **data);
 
 /* map extract functions */
+int		calculate_map_width(char **map, int height);
 char	*extract_map_content(t_data **data, char *line, int fd, char *path);
 int		map_size(t_data **data, char *line, int fd);
 int		cpy_map_content(t_data **data, char *line, int fd2);

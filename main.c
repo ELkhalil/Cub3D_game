@@ -3,53 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:57:37 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 16:34:13 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/04/29 11:43:07 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/* temporary function */
-void	print_data(t_data *data)
+int	close_game(void)
 {
-	int i;
-
-	if (!data)
-		return ;
-	i = -1;
-	/* print textures paths */
-	printf("NO %s", data->no);
-	printf("\n-------------------------------\n");
-	printf("SO %s", data->so);
-	printf("\n-------------------------------\n");
-	printf("WE %s", data->we);
-	printf("\n-------------------------------\n");
-	printf("EA %s", data->ea);
-	printf("\n-------------------------------\n");
-	
-	/*print RGB Colors */
-	printf("F |R = %d, G = %d, B = %d|", data->f[0], data->f[1], data->f[2]);
-	printf("C |R = %d, G = %d, B = %d|", data->c[0], data->c[1], data->c[2]);
-
-	/*print map data */
-	printf("\n-------------------------------\n");
-	while (++i < data->map_height)
-		printf("%s\n", data->map[i]);
-	printf("\n-------------------------------\n");
+	write(1, "Good Bye !\n", 12);
+	exit(0);
 }
 
 int	main(int ac, char **av)
 {
 	t_data	*data;
+	t_game	leet3d;
 
 	if (ac == 1 || ac > 2 || ft_strncmp(ft_strrchr(av[1], '.'), ".cub", 5))
 		return (ft_error("Invalid arguments\n"), EXIT_FAILURE);
 	data = parse_game_data(av[1]);
 	if (!data)
 		return (ft_error("while Setting Game data\n"), EXIT_FAILURE);
-	print_data(data);
+	leet3d.data = data;
+	_leet3d_init1(&leet3d);
+	_load_textures(&leet3d);
+	mlx_hook(leet3d.win_ptr, 2, 0, &_key_press, &leet3d);
+	mlx_loop_hook(leet3d.mlx, _cub3d, &leet3d);
+	mlx_hook(leet3d.win_ptr, 4, 0, &_mouse_events, &leet3d);
+	mlx_loop(leet3d.mlx);
 	return (EXIT_SUCCESS);
 }

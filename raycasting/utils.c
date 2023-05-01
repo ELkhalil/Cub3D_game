@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 16:06:26 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/04/13 14:18:38 by mmounaji         ###   ########.fr       */
+/*   Created: 2023/04/17 14:51:05 by mmounaji          #+#    #+#             */
+/*   Updated: 2023/04/29 20:58:03 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "raycasting.h"
 
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <stdio.h>
-#include <math.h>
-# include <mlx.h>
-# include "./libft/libft.h"
-# include "./srcs/parsing/parser.h"
-# include "raycasting/raycasting.h"
+int	_out_range(char **map, int x, int y)
+{
+	int	i;
 
-/* parsing */
-t_data	*parse_game_data(char *map_path);
-#endif
+	i = 0;
+	while (map[i])
+		i++;
+	return (y < 0 || y >= i || x < 0 || x >= (int)ft_strlen(map[y]));
+}
