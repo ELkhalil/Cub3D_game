@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:45:32 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/05/02 18:03:29 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:58:19 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	get_color(t_game *game, int x, int y)
 	int	color;
 
 	if (x >= game->data->map_height || y >= game->data->map_width)
-		color = GREY_HH;
+		color = GREY;
 	else if (game->data->map[x][y] == '1')
 		color = GREY_HH;
 	else
