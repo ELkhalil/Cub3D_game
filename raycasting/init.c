@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:38:55 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/05/01 17:03:36 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:27:00 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	_leet3d_init1(t_game *leet3d)
 	leet3d->move_speed = 0.8;
 	leet3d->plane.x = 0.0;
 	leet3d->plane.y = 0.66;
-	leet3d->pos.x = leet3d->data->p_y;
-	leet3d->pos.y = leet3d->data->p_x;
+	leet3d->pos.x = leet3d->data->p_y + 0.1;
+	leet3d->pos.y = leet3d->data->p_x + 0.1;
 	if (leet3d->data->map[(int)leet3d->pos.x][(int)leet3d->pos.y] == 'S')
 	{
 		leet3d->dir.x = 1.0;
@@ -121,6 +121,6 @@ void	_load_textures(t_game *leet3d)
 		data->we, &leet3d->texture.width, &leet3d->texture.height);
 	leet3d->e = mlx_xpm_file_to_image(leet3d->mlx, leet3d->\
 		data->ea, &leet3d->texture.width, &leet3d->texture.height);
-	if (!leet3d->n || !leet3d->n || !leet3d->w || !leet3d->e)
+	if (!leet3d->n || !leet3d->s || !leet3d->w || !leet3d->e)
 		exit(1);
 }
