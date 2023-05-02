@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:09:49 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/03/19 16:31:45 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:55:41 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ t_data	*parse_game_data(char *map_path)
 	fill_data(&data, line, fd, map_path);
 	if (data->map_height == 0)
 		return (ft_error("Empty Map\n"), exit(1), NULL);
+	data->map_width = calculate_map_width(data->map, data->map_height);
 	return (data);
 }

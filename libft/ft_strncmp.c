@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 19:06:10 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/04/08 14:24:59 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:39:34 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 	unsigned char	*c_s2;
 
 	i = 0;
-	if(!s1)
-		return(1);
+	if (!s1)
+		return (1);
 	c_s1 = (unsigned char *)s1;
 	c_s2 = (unsigned char *)s2;
 	while (c_s1[i] && c_s2[i] && c_s1[i] == c_s2[i] && i < n)

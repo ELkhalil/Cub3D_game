@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 13:36:40 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/05/01 17:16:17 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:58:38 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int	_cub3d(void *game)
 	}
 	mlx_put_image_to_window(leet3d->mlx, leet3d->win_ptr, \
 	leet3d->img.img, 0, 0);
+	_init_minimap(leet3d);
 	return (EXIT_SUCCESS);
 }
