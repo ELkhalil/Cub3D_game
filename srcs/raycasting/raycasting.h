@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/05/01 19:22:14 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:31:07 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /* Mini_Map Settings*/
 # define MINI_MAP_H 200
 # define MINI_MAP_W 200
-# define MINI_TILE 20
+# define MINI_TILE 10
 
 # include "../../cub3d.h"
 
@@ -47,10 +47,11 @@
 # define GREEN 0x0000FF00
 # define BLUE 0x000000FF
 # define RED_PIXEL 0xFF0000
-# define TRANSPARENT 0xFFFFFF40
+# define TRANSPARENT 0xFFFFFF
 # define WHITE_PIXEL 0xFFFFFF
-# define BLACK_PIXEL 0x000000
-# define GREY 0x808080
+# define BLACK_PIXEL 0x00000010
+# define GREY 0x80808080
+# define GREY_HH 0x20202020
 
 typedef struct s_rgb
 {

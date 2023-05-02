@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:45:32 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/05/01 18:47:46 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:33:45 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	get_color(t_game *game, int x, int y)
 	int	color;
 
 	if (x >= game->data->map_height || y >= game->data->map_width)
-		color = GREY;
+		color = GREY_HH;
 	else if (game->data->map[x][y] == '1')
-		color = BLACK_PIXEL;
+		color = GREY_HH;
 	else
 		color = GREY;
 	return (color);
@@ -40,4 +40,3 @@ int	wach_wall(t_game *game, int x, int y)
 		return (1);
 	return (0);
 }
-

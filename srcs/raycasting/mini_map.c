@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:26:44 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/05/01 19:51:17 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:29:56 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	render_tile(t_game *game, t_img *img, t_tile tile)
 	int	color;
 
 	if (tile.is_player)
-		color = GREEN;
+		color = BLUE;
 	else
 		color = get_color(game, tile.map_row, tile.map_col);
 	pixel_row = 0;
@@ -76,6 +76,6 @@ void	_init_minimap(t_game *game)
 	render_tile(game, &map_img, (t_tile){MINI_MAP_H / 2 / MINI_TILE, \
 	MINI_MAP_W / 2 / MINI_TILE, 0, 0, 1});
 	mlx_put_image_to_window(game->mlx, game->win_ptr, \
-	map_img.img, 0, 0);
+	map_img.img, 20, 20);
 	mlx_destroy_image(game->mlx, map_img.img);
 }
