@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:06:26 by aelkhali          #+#    #+#             */
-/*   Updated: 2023/05/01 18:18:43 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:45:03 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
-#include <math.h>
+# include <math.h>
 # include <mlx.h>
 # include "./libft/libft.h"
 # include "./srcs/parsing/parser.h"

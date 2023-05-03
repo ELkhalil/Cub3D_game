@@ -6,12 +6,12 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/05/02 12:31:07 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:38:46 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAYCASTING_H
-#define RAYCASTING_H
+# define RAYCASTING_H
 
 # define PI 3.14\
 
@@ -60,7 +60,6 @@ typedef struct s_rgb
 	int	blue;
 }	t_rgb;
 
-
 typedef struct s_vector
 {
 	double		x;
@@ -78,7 +77,7 @@ typedef struct s_img
 	int			endian;
 }	t_img;
 
-typedef	struct tile
+typedef struct tile
 {
 	int		tile_row;
 	int		tile_col;
@@ -147,7 +146,6 @@ void	_drawing_floor(t_game *leet3d);
 void	_drawing_ceiling(t_game *leet3d);
 int		_mouse_events(int key, int x, int y, t_game *leet3d);
 int		get_rgb_color(int red, int green, int blue);
-
 
 /* MiniMap_Utils */
 void	_init_minimap(t_game *game);
