@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:38:55 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/05/02 18:57:36 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/02 21:11:26 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@ void	_leet3d_init2(t_game *leet3d)
 		leet3d->dir.y = 0.0;
 		leet3d->plane.x = 0.0;
 		leet3d->plane.y = -0.66;
-	}
-	else if (leet3d->data->map[(int)leet3d->pos.x][(int)leet3d->pos.y] == 'E')
-	{
-		leet3d->dir.x = 0.0;
-		leet3d->dir.y = 1.0;
-		leet3d->plane.x = 0.66;
-		leet3d->plane.y = 0.0;
 	}
 	else if (leet3d->data->map[(int)leet3d->pos.x][(int)leet3d->pos.y] == 'N')
 	{
@@ -46,14 +39,6 @@ void	_leet3d_init2(t_game *leet3d)
 
 void	_leet3d_init1(t_game *leet3d)
 {
-	leet3d->mlx = mlx_init();
-	leet3d->window_h = 1200;
-	leet3d->window_w = 1200;
-	leet3d->i = 0;
-	leet3d->win_ptr = mlx_new_window(leet3d->mlx, \
-	leet3d->window_w, leet3d->window_h, "leet3D");
-	leet3d->img.img = mlx_new_image(leet3d->mlx, \
-	leet3d->window_w, leet3d->window_h);
 	leet3d->img.addr = (int *)mlx_get_data_addr(leet3d->img.img, \
 	&(leet3d->img.bits_per_pixel), &(leet3d->img.line_length), \
 	&(leet3d->img.endian));
@@ -61,8 +46,9 @@ void	_leet3d_init1(t_game *leet3d)
 	leet3d->move_speed = 0.8;
 	leet3d->plane.x = 0.0;
 	leet3d->plane.y = 0.66;
-	leet3d->pos.x = leet3d->data->p_y;
-	leet3d->pos.y = leet3d->data->p_x;
+	leet3d->pos.x = leet3d->data->p_y + 0.1;
+	leet3d->pos.y = leet3d->data->p_x + 0.1;
+	leet3d->i = 0;
 	if (leet3d->data->map[(int)leet3d->pos.x][(int)leet3d->pos.y] == 'S')
 	{
 		leet3d->dir.x = 1.0;
@@ -70,7 +56,30 @@ void	_leet3d_init1(t_game *leet3d)
 		leet3d->plane.x = 0.0;
 		leet3d->plane.y = -0.66;
 	}
+	else if (leet3d->data->map[(int)leet3d->pos.x][(int)leet3d->pos.y] == 'E')
+	{
+		leet3d->dir.x = 0.0;
+		leet3d->dir.y = 1.0;
+		leet3d->plane.x = 0.66;
+		leet3d->plane.y = 0.0;
+	}
 	_leet3d_init2(leet3d);
+}
+
+void	_default_draw_init2(t_game *leet3d)
+{
+	if (leet3d->raydir.x < 0)
+	{
+		leet3d->step.x = -1;
+		leet3d->side_dist.x = (leet3d->pos.x - leet3d->map.x) \
+		* leet3d->delta_dist.x;
+	}
+	else
+	{
+		leet3d->step.x = 1;
+		leet3d->side_dist.x = (leet3d->map.x + 1.0 - leet3d->pos.x) \
+		* leet3d->delta_dist.x;
+	}
 }
 
 void	_default_draw_init(t_game	*leet3d)
@@ -97,18 +106,7 @@ void	_default_draw_init(t_game	*leet3d)
 		leet3d->side_dist.y = (leet3d->map.y + 1.0 - leet3d->pos.y) \
 		* leet3d->delta_dist.y;
 	}
-	if (leet3d->raydir.x < 0)
-	{
-		leet3d->step.x = -1;
-		leet3d->side_dist.x = (leet3d->pos.x - leet3d->map.x) \
-		* leet3d->delta_dist.x;
-	}
-	else
-	{
-		leet3d->step.x = 1;
-		leet3d->side_dist.x = (leet3d->map.x + 1.0 - leet3d->pos.x) \
-		* leet3d->delta_dist.x;
-	}
+	_default_draw_init2(leet3d);
 }
 
 void	_load_textures(t_game *leet3d)

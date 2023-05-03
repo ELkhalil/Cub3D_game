@@ -6,7 +6,7 @@
 #    By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 15:53:10 by aelkhali          #+#    #+#              #
-#    Updated: 2023/05/01 18:47:07 by aelkhali         ###   ########.fr        #
+#    Updated: 2023/05/03 13:01:01 by aelkhali         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,3 @@ fclean : clean
 	@echo "$(RED)Deleting The Game ... $(STOP)"
 
 re : fclean all
-
-push:
-	git add .
-	git commit -m "wall collision"
-	git push

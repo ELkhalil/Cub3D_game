@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:51:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/29 20:58:03 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:59:10 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	_out_range(char **map, int x, int y)
 	i = 0;
 	while (map[i])
 		i++;
-	return (y < 0 || y >= i || x < 0 || x >= (int)ft_strlen(map[y]));
+	return (x < 0 || x >= (int)ft_strlen(map[y]) || y < 0 || y >= i);
 }

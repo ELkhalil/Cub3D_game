@@ -6,7 +6,7 @@
 /*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:13:35 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/04/30 19:46:15 by mmounaji         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:53:56 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	_drawing_floor(t_game *leet3d)
 	}
 }
 
-void	_setup_textures(t_game *leet3d)
+void	_choose_texture(t_game *leet3d)
 {
 	if (leet3d->side == 0 && leet3d->step.x == -1)
 		leet3d->texture.img = leet3d->n;
@@ -46,9 +46,14 @@ void	_setup_textures(t_game *leet3d)
 		leet3d->texture.img = leet3d->w;
 	else if (leet3d->side == 1 && leet3d->step.y == 1)
 		leet3d->texture.img = leet3d->e;
+}
+
+void	_setup_textures(t_game *leet3d)
+{
+	_choose_texture(leet3d);
 	leet3d->texture.addr = (int *)mlx_get_data_addr(leet3d->texture.img, \
-		&leet3d->texture.bits_per_pixel, &leet3d->texture.line_length, \
-		&leet3d->texture.endian);
+	&leet3d->texture.bits_per_pixel, &leet3d->texture.line_length, \
+	&leet3d->texture.endian);
 	if (leet3d->side == 0)
 		leet3d->wallx = leet3d->pos.y + leet3d->perp_wall_dist * \
 		leet3d->raydir.y;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmounaji <mmounaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:47:05 by mmounaji          #+#    #+#             */
-/*   Updated: 2023/05/03 12:38:46 by aelkhali         ###   ########.fr       */
+/*   Updated: 2023/05/02 21:00:39 by mmounaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ int		_key_press(int key, t_game *leet3d);
 void	_default_draw_init(t_game	*leet3d);
 void	_load_textures(t_game *leet3d);
 void	_leet3d_init1(t_game *leet3d);
-void	_leet3d_init1(t_game *leet3d);
+void	_leet3d_init2(t_game *leet3d);
 int		close_game(void);
 void	_drawing_textures(t_game *leet3d);
 int		_out_range(char **map, int x, int y);
@@ -146,7 +146,6 @@ void	_drawing_floor(t_game *leet3d);
 void	_drawing_ceiling(t_game *leet3d);
 int		_mouse_events(int key, int x, int y, t_game *leet3d);
 int		get_rgb_color(int red, int green, int blue);
-
 /* MiniMap_Utils */
 void	_init_minimap(t_game *game);
 void	set_pixel(t_img *img, int x, int y, int color);
